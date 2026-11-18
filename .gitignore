@@ -17,8 +17,8 @@ outputs/
 multirun/
 work_dirs/
 
-# Data is registered and mounted, never committed.
-data/
+# Raw dataset payloads at the repository root are mounted, never committed.
+/data/
 *.sif
 
 # Editors

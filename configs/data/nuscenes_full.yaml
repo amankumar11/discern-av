@@ -1,0 +1,14 @@
+name: nuscenes-full
+version: v1.0-trainval
+root: ${oc.env:NUSCENES_ROOT,${paths.root}/data/nuscenes}
+train_info: ${data.root}/nuscenes_infos_train.pkl
+val_info: ${data.root}/nuscenes_infos_val.pkl
+manifest_directory: ${paths.artifacts}/manifests/stage1
+profile: ${paths.root}/reports/data_profile.html
+train_scene_count: 100
+fit_scene_count: 50
+required_entries:
+  - v1.0-trainval
+  - samples
+  - sweeps
+  - maps

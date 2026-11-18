@@ -1,4 +1,5 @@
 name: bevfusion-lidar-camera
+variant: fused
 framework: mmdetection3d
 framework_revision: fe25f7a51d36e3702f961e198894580d83c4387b
 framework_root: ${oc.env:MMDET3D_HOME,/opt/mmdetection3d}
@@ -9,4 +10,5 @@ checkpoint:
   bytes: 167113973
   md5: 5873a41fa1ee29b4cdea346be177019a
 frozen: true
+available: true
 

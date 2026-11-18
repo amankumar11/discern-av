@@ -1,0 +1,9 @@
+name: stage1-base-cache
+description: Frozen base-detector validation and immutable feature caching.
+subsets:
+  - fit
+  - calibration
+  - validation
+cache_root: ${paths.artifacts}/cache/base
+work_root: ${paths.artifacts}/work_dirs/stage1
+require_manifest_hash: true

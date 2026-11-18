@@ -19,6 +19,22 @@ def test_hprc_runtime_override() -> None:
     assert config.experiment.evaluate is True
 
 
+def test_stage1_config_composes() -> None:
+    config = load_config(
+        [
+            "data=nuscenes_full",
+            "model=bevfusion_lidar",
+            "runtime=hprc",
+            "+experiment=stage1_cache",
+        ]
+    )
+
+    assert config.data.train_scene_count == 100
+    assert config.data.fit_scene_count == 50
+    assert config.model.variant == "lidar_only"
+    assert config.model.frozen is True
+
+
 def test_checkpoint_metadata_is_pinned() -> None:
     checkpoint = resolved_config()["model"]["checkpoint"]
 

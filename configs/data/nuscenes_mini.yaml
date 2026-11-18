@@ -1,0 +1,10 @@
+name: nuscenes-mini
+version: v1.0-mini
+root: ${oc.env:NUSCENES_ROOT,${paths.root}/data/nuscenes}
+train_info: ${data.root}/nuscenes_infos_train.pkl
+val_info: ${data.root}/nuscenes_infos_val.pkl
+required_entries:
+  - v1.0-mini
+  - samples
+  - sweeps
+  - maps

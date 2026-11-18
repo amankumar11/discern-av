@@ -1,0 +1,13 @@
+name: bevfusion-lidar
+variant: lidar_only
+framework: mmdetection3d
+framework_revision: fe25f7a51d36e3702f961e198894580d83c4387b
+framework_root: ${oc.env:MMDET3D_HOME,/opt/mmdetection3d}
+config: ${model.framework_root}/projects/BEVFusion/configs/bevfusion_lidar_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py
+checkpoint:
+  path: ${paths.artifacts}/checkpoints/bevfusion_lidar_nuscenes.pth
+  url: https://download.openmmlab.com/mmdetection3d/v1.1.0_models/bevfusion/bevfusion_lidar_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d-2628f933.pth
+  bytes: 46332893
+  md5: f2d08729546cc22e4836e76491bacf2d
+frozen: true
+available: true

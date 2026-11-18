@@ -1,0 +1,9 @@
+name: bevfusion-camera
+variant: camera_only
+framework: unresolved
+available: false
+reason: >-
+  The original MIT camera-only checkpoint targets the archived MMCV 1.x stack.
+  A conversion or a replacement baseline must be approved before Stage 1 can
+  claim a camera-only result on the pinned MMDetection3D 1.4 runtime.
+frozen: true

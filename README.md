@@ -6,7 +6,9 @@ manipulation. The base camera-LiDAR detector remains frozen; radar is initially
 used as an independent verification modality.
 
 The full research design is in [PLAN.md](PLAN.md). This repository currently
-contains the Stage 0 reproducibility scaffold.
+contains the Stage 0 reproducibility scaffold and the locally tested Stage 1
+manifest/cache implementation. Stage 1 acceptance still requires the logged
+HPRC runs described in [docs/STAGE1.md](docs/STAGE1.md).
 
 ## Stage 0 quick start
 
