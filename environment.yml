@@ -1,0 +1,9 @@
+name: discern-av
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10.15
+  - pip=24.3.1
+  - pip:
+      - -e .[dev]
+

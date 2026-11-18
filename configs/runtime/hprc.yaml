@@ -1,0 +1,6 @@
+name: hprc
+device: cuda
+workers: 4
+deterministic: true
+gpu_count: 1
+

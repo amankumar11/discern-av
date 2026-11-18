@@ -1,0 +1,1 @@
+"""Frozen base-detector adapters."""

@@ -1,0 +1,5 @@
+name: stage0-bevfusion-smoke
+description: End-to-end BEVFusion inference over the nuScenes mini validation split.
+evaluate: true
+save_predictions: true
+

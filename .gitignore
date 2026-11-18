@@ -1,0 +1,27 @@
+.DS_Store
+.env
+.venv/
+.pytest_cache/
+.ruff_cache/
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+
+# Local experiment and model outputs
+artifacts/
+checkpoints/
+mlruns/
+outputs/
+multirun/
+work_dirs/
+
+# Data is registered and mounted, never committed.
+data/
+*.sif
+
+# Editors
+.idea/
+.vscode/
+

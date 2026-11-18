@@ -1,0 +1,5 @@
+backend: mlflow
+experiment: discern-av-stage0
+directory: ${oc.env:MLFLOW_DIR,${paths.root}/mlruns}
+uri: ${oc.env:MLFLOW_TRACKING_URI,''}
+

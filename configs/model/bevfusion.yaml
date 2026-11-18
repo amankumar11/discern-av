@@ -1,0 +1,12 @@
+name: bevfusion-lidar-camera
+framework: mmdetection3d
+framework_revision: fe25f7a51d36e3702f961e198894580d83c4387b
+framework_root: ${oc.env:MMDET3D_HOME,/opt/mmdetection3d}
+config: ${model.framework_root}/projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py
+checkpoint:
+  path: ${paths.artifacts}/checkpoints/bevfusion_lidar-cam_nuscenes.pth
+  url: https://download.openmmlab.com/mmdetection3d/v1.1.0_models/bevfusion/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d-5239b1af.pth
+  bytes: 167113973
+  md5: 5873a41fa1ee29b4cdea346be177019a
+frozen: true
+

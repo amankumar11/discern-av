@@ -1,0 +1,64 @@
+Bootstrap: docker
+From: pytorch/pytorch:2.1.2-cuda11.8-cudnn8-devel
+
+%labels
+    org.opencontainers.image.title DISCERN-AV Stage 0
+    org.opencontainers.image.source https://github.com/open-mmlab/mmdetection3d
+    org.opencontainers.image.revision fe25f7a51d36e3702f961e198894580d83c4387b
+
+%files
+    containers/constraints.txt /opt/discern/constraints.txt
+
+%environment
+    export MMDET3D_HOME=/opt/mmdetection3d
+    export PYTHONPATH=/opt/mmdetection3d:${PYTHONPATH:-}
+    export PYTHONNOUSERSITE=1
+    export MPLBACKEND=Agg
+    export OMP_NUM_THREADS=1
+
+%post
+    set -eu
+    export DEBIAN_FRONTEND=noninteractive
+    apt-get update
+    apt-get install -y --no-install-recommends \
+        build-essential \
+        ca-certificates \
+        ffmpeg \
+        git \
+        libgl1 \
+        libglib2.0-0 \
+        libsm6 \
+        libxext6 \
+        libxrender1 \
+        ninja-build
+    rm -rf /var/lib/apt/lists/*
+
+    python -m pip install --no-cache-dir \
+        pip==24.3.1 setuptools==75.6.0 wheel==0.45.1
+    python -m pip install --no-cache-dir \
+        -c /opt/discern/constraints.txt \
+        mmengine==0.10.7 mmdet==3.2.0
+    python -m pip install --no-cache-dir \
+        -f https://download.openmmlab.com/mmcv/dist/cu118/torch2.1/index.html \
+        mmcv==2.1.0
+
+    git clone https://github.com/open-mmlab/mmdetection3d.git /opt/mmdetection3d
+    cd /opt/mmdetection3d
+    git checkout --detach fe25f7a51d36e3702f961e198894580d83c4387b
+    python -m pip install --no-cache-dir \
+        -c /opt/discern/constraints.txt -e .
+
+    export FORCE_CUDA=1
+    python projects/BEVFusion/setup.py develop
+    python -m pip freeze | sort > /opt/discern/container-requirements.lock
+
+%test
+    set -eu
+    python -c "import torch; assert torch.__version__.startswith('2.1.2')"
+    python -c "import mmcv, mmdet, mmengine, mmdet3d"
+    python -c "from projects.BEVFusion.bevfusion.ops.bev_pool import bev_pool"
+    python -c "from projects.BEVFusion.bevfusion.ops.voxel import voxelization"
+
+%runscript
+    exec python "$@"
+

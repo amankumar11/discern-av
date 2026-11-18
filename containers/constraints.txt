@@ -1,0 +1,15 @@
+# Critical GPU and OpenMMLab compatibility pins for the HPRC image.
+mmcv==2.1.0
+mmdet==3.2.0
+mmengine==0.10.7
+numpy==1.24.4
+numba==0.58.1
+llvmlite==0.41.1
+matplotlib==3.5.3
+nuscenes-devkit==1.1.11
+scipy==1.10.1
+pandas==1.5.3
+networkx==2.8.8
+scikit-image==0.21.0
+open3d==0.18.0
+

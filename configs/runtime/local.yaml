@@ -1,0 +1,5 @@
+name: local
+device: cpu
+workers: 2
+deterministic: true
+
